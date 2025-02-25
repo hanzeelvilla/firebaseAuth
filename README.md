@@ -37,3 +37,5 @@ VITE_MEASUREMENT_ID=your_measurement_id
 ```bash
 npm run dev
 ```
+
+8. Opcional para hostear en la nube
