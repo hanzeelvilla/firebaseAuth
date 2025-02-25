@@ -38,4 +38,49 @@ VITE_MEASUREMENT_ID=your_measurement_id
 npm run dev
 ```
 
-8. Opcional para hostear en la nube
+8. Opcional para hostear en la nube, Primero instalar las herramientas de firebase(viene con los paquetes de node, pero para confirmar)
+```bash
+npm install -g firebase-tools
+```
+9. Acceder a Google
+```bash
+firebase login
+```
+10. Inicia el proyecto
+```bash
+firebase init
+```
+En esta parte tienes que seleccionar la opcion de hosting en la terminal asi mismo la opcion de FireStore
+
+11. Correr el comando para iniciar la carpeta dist (donde hostearas tu proyecto))
+```bash
+npm run build
+```
+Asegurate que tu archivo firebase.json se vea asi
+```javascript
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+```
+12. Cuando tengas todo listo, implementa tu app web
+```bash
+firebase deploy
+```
+
